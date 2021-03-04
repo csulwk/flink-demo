@@ -42,12 +42,11 @@ import java.util.Properties;
  */
 @Slf4j
 public class StreamingJob {
-
-	public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         final String topicName = "mytopic";
-	    final String registryUrl = "http://192.168.99.100:9081";
+        final String registryUrl = "http://192.168.99.100:9081";
 
-		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 		env.setParallelism(2);
         env.getConfig().addDefaultKryoSerializer(GenericRecord.class, DefaultSerializers.StringSerializer.class);
         Properties props = new Properties();
