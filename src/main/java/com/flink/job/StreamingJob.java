@@ -47,7 +47,7 @@ public class StreamingJob {
         final String registryUrl = "http://192.168.99.100:9081";
 
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-		env.setParallelism(2);
+        env.setParallelism(2);
         env.getConfig().addDefaultKryoSerializer(GenericRecord.class, DefaultSerializers.StringSerializer.class);
         Properties props = new Properties();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.99.100:9091,192.168.99.100:9092,192.168.99.100:9093");
@@ -80,5 +80,5 @@ public class StreamingJob {
         streamStr.print();
 
         env.execute("MyJob");
-	}
+    }
 }
