@@ -16,14 +16,10 @@
  * limitations under the License.
  */
 
-package com.flink.job;
+package com.flink.main;
 
-import cn.hutool.core.map.CaseInsensitiveMap;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.esotericsoftware.kryo.serializers.DefaultSerializers;
-import com.flink.bean.GenericKafkaDeserializationSchema;
-import com.flink.bean.GenericRichMapFunction;
+import com.flink.serializer.GenericKafkaDeserializationSchema;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +29,8 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Properties;
 
@@ -42,6 +40,8 @@ import java.util.Properties;
  */
 @Slf4j
 public class StreamingJob {
+    private static Logger LOG = LoggerFactory.getLogger(StreamingJob.class);
+
     public static void main(String[] args) throws Exception {
         final String topicName = "mytopic";
         final String registryUrl = "http://192.168.99.100:9081";

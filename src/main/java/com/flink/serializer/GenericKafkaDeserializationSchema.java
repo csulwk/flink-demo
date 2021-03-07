@@ -1,4 +1,4 @@
-package com.flink.bean;
+package com.flink.serializer;
 
 import io.confluent.kafka.schemaregistry.client.CachedSchemaRegistryClient;
 import io.confluent.kafka.schemaregistry.client.SchemaRegistryClient;

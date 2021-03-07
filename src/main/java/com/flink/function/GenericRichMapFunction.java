@@ -1,4 +1,4 @@
-package com.flink.bean;
+package com.flink.function;
 
 import cn.hutool.core.map.CaseInsensitiveMap;
 import com.alibaba.fastjson.JSONObject;
